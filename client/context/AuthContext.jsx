@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   // Check auth on mount
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`; 
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     }
     checkAuth();
   }, []);
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (state, credentials) => {
     try {
-      const { data } = await axios.post(`/api/user/${state}`, credentials);
+      const { data } = await axios.post(`/api/auth/${state}`, credentials);
       if (data.success) {
         setAuthUser(data.userData);
         setToken(data.token);
