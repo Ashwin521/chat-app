@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
         setAuthUser(data.userData);
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`; //
+        axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`; 
         connectSocket(data.userData);
         toast.success(data.message);
       } else {
